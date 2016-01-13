@@ -49,8 +49,8 @@
 			return $this->grupo;
 		}
 	}
-// 	$persona = new Estudiante("45368554G", "Paco", 32121, "ayer");
-// 	$persona1 = new Estudiante("45368556K", "Fabricio", 35116, "14/12/1993");
+// 	$persona = new Persona("45368554G", "Paco", 32121, "ayer");
+// 	$persona1 = new Persona("45368556K", "Fabricio", 35116, "14/12/1993");
 	$estudiante = new Estudiante("45368554G", "Paco", 32121, "ayer", 3, 1);
 	$estudiante1 = new Estudiante("45368556K", "Fabricio", 35116, "14/12/1993", 2, 2);
 	$estudiante2 = new Estudiante("45365987G", "Juan", 35124, "hoy", 1, 3);
@@ -73,7 +73,7 @@
 	foreach ($arrayEstudiantes1 as $a => $valor) {
 		echo $valor->getNombre();
 	}
-	
+
 // 	echo "<br>DNI: " . $persona->getNif() . "<br>";
 // 	echo "Nombre: " . $persona->getNombre() . "<br>";
 // 	echo "Codigo postal: " . $persona->getCPostal() . "<br>";

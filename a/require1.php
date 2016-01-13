@@ -1,10 +1,35 @@
 <?php
 	require "introduction.php";
 	
-	$persona = new Persona("45368556K", "Fabricio", 35116, "14/12/1993");
-	$persona1 = new Persona("45368554G", "Paco", 32121, "ayer");
-	$estudiante = new Estudiante("45368554G", "Paco", 32121, "ayer", 2, 3);
+	$persona = new Persona("45368554G", "Paco", 32121, "ayer");
+	$persona1 = new Persona("45368556K", "Fabricio", 35116, "14/12/1993");
+	$estudiante = new Estudiante("45368554G", "Paco", 32121, "ayer", 3, 1);
+	$estudiante1 = new Estudiante("45368556K", "Fabricio", 35116, "14/12/1993", 2, 2);
+	$estudiante2 = new Estudiante("45365987G", "Juan", 35124, "hoy", 1, 3);
 	
+	//array normal
+	$arrayEstudiantes = array ($estudiante, $estudiante1, $estudiante2);
+	//array con clave - valor
+	$arrayEstudiantes1 = array ($estudiante->getId() => $estudiante,
+								$estudiante1->getId() => $estudiante1,
+								$estudiante2->getId() => $estudiante2);
+	
+	//recorrer array normal
+	goto a;
+	foreach ($arrayEstudiantes as $valor) {
+	    echo $valor->getNombre();
+	}
+	a:
+	//recorrer array con clave - valor
+	$a = $estudiante->getId();
+	foreach ($arrayEstudiantes1 as $a => $valor) {
+		echo $valor->getNombre();
+	}
+	
+ 	function conectar (){
+		include "connection.php";
+		
+ 	}
 	echo "<br>DNI: " . $persona->getNif() . "<br>";
 	echo "Nombre: " . $persona->getNombre() . "<br>";
 	echo "Codigo postal: " . $persona->getCPostal() . "<br>";
