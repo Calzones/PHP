@@ -1,7 +1,5 @@
 <?php
-interface Comportamiento{
-	public $estado;
-	public function caminar($numPasos=1) {
+	interface Comportamiento{
+		public function caminar($numPasos = 1);
 	}
-}
 ?>
