@@ -1,14 +1,20 @@
 <html>
 	<head>
 		<title>Iniciar sesion</title>
+		<link rel="stylesheet" href="stilo.css"/>
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<form action="index.php" method="POST">
-			Usuario: <input type="text" name="usuario" /> <br><br>
-			Contraseña: <input type="password" name="contrasenia" /> <br><br>
-			<input type="submit" value="submit" name="Iniciar sesion" />
-			<h3>{mensajito}</h3>
-		</form>
+		<div class="contenedor">
+			<form action="index.php" method="post">
+				<div class="inicio">
+					<label class="laravel">Usuario:</label> <input class="input" type="text" name=usuario /> <br><br>
+					<label class="laravel">Contraseña:</label> <input class="input" type="password" name=contrasenia /> <br><br>
+					<input type="submit" value="Iniciar sesión"/>
+					<a href="#">Registráte o no, veremos</a>
+				</div>
+				<h3>{mensajito}</h3>
+			</form>
+		</div>
 	</body>
 </html>

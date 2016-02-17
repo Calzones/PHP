@@ -1,0 +1,27 @@
+body{
+	background-color:#333333; 
+	margin: 0;
+	padding: 0;
+}
+form{
+	margin-top:50px;
+	background-color:#aaaaab;
+	padding:10px;
+	text-align:center;
+	height:110px;
+}
+.contenedor{
+	width:350px;
+	margin: 0 auto;
+}
+.input{
+	float:right;
+}
+.laravel{
+	float:left;
+}
+.inicio{
+	margin: 0 auto;
+	padding-top:10px;
+	width:260px;
+}

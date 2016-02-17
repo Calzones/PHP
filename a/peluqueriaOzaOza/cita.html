@@ -1,10 +1,23 @@
 <html>
 	<head>
 		<title>Gestion citas</title>
+		<link rel="stylesheet" href="stilo.css"/>
 		<meta charset="UTF-8">
 	</head>
 	<body>
 		<h1>Bienvenido: {usuario}</h1>
-		<h3>{tabla}</h3>
+		<form action="cita.php" method="post" onclick="document.form.submit();">
+			<select name=select onclick="document.form.submit();">
+				<option   value="lunes">Lunes</option>
+				<option value="martes">Martes</option>
+				<option value="miercoles">Miercoles</option>
+				<option value="jueves">Jueves</option>
+				<option value="viernes">Viernes</option>
+				<option value="sabado">Sabado</option>
+				<option value="domingo">Domingo</option>
+			</select>
+			<h3>{tabla}</h3>
+			<input type="submit" value=boton>
+		</form>
 	</body>
 </html>
