@@ -1,22 +1,29 @@
 <?PHP
 	require "medotos.php";
-	print getTemplateTocho("cita", '{usuario}', $nombre="asdas");
-	$_POST['select'];
-	$fecha = fecha("d/m");
-	$hora = "a";
 	
-	$hola = "<table><th>Hora</th>";
+	$fechaMal = $_POST['select'];
+	list($anio, $mes, $dia) = split('[/.-]', $fechaMal);
+	
+	$fecha = $dia . "/" . $mes . "/" . $anio;
+	$hora = "";
+	$tabla = "";
+	
+	$tabla = "<div class='divTabla'><table><th>Hora</th>";
 	for($i = 8; $i < 17; $i ++){
 		$hora = $i . ":00";
-		$hola .=  "<tr>";
+		$tabla .=  "<tr>";
 		if (getCita($fecha, $hora)->num_rows == 0){
-			$hola .= "<td>" . $hora . "</td>";
+			$tabla .= "<td>" . $hora . "</td>";
 		}else{
-			$hola .= "<td>" . $hora ."</td>";
+			$tabla .= "<td>" . $hora . " Ta ocupao manaso</td>";
 		}
-		$hola .= "</tr>";
+		$tabla .= "</tr>";
 		 
 	}
-	$hola .= "</table>";
-	echo $hola;
+	$tabla .= "</table></div>";
+	$array = array (
+			"{usuario}" => "asdas",
+			"{tabla}" => $tabla,
+	);
+	echo getTemplateReContraTocho("cita", $array);
 ?>

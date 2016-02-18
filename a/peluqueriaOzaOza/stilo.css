@@ -25,3 +25,17 @@ form{
 	padding-top:10px;
 	width:260px;
 }
+.cita{
+	margin-top:50px;
+	background-color:#aaaaab;
+	padding:10px;
+	text-align:center;
+	width:80%;
+	margin: 0 auto;
+	height:80%;
+}
+.divTabla{
+	margin: 0 auto;
+	width:50%;
+	text-align:center;
+}

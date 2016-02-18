@@ -9,11 +9,11 @@
 		$resultado = inicioSesion($nombre, $contraseña);
 		
 		if ($resultado->num_rows > 0) {
-			print getTemplateTocho("cita", '{usuario}', $nombre);
+			echo getTemplateTocho("cita", '{usuario}', $nombre);
 		} else {
-			print getTemplateTocho("inicio", '{mensajito}', "Usuario o contraseña incorrectos");
+			echo getTemplateTocho("inicio", '{mensajito}', "Usuario o contraseña incorrectos");
 		}
 	} else {
-		print getTemplateTocho("inicio", '{mensajito}', "");
+		echo getTemplateTocho("inicio", '{mensajito}', "");
 	}
 ?>
