@@ -23,14 +23,13 @@
 		return str_replace($remplazar, $mensaje, getTemplate($pagina));
 	}
 	
-	//work in progres
 	// Obtiene el contenido de una plantilla html.
 	// Sustituye multiples parametros por una string para cada uno.
 	// Devuelve una string.
 	function getTemplateReContraTocho($pagina, $cajita){
 		$html = getTemplate($pagina);
-		foreach($cajita as $clave=>$valor){
-			$html = str_replace($clave, $valor, $html);
+		foreach($cajita as $remplazar=>$mensaje){
+			$html = str_replace($remplazar, $mensaje, $html);
 		}
 		return $html;
 	}
@@ -42,7 +41,6 @@
 		return conectar ()->query( "SELECT * FROM usuarios WHERE nombre LIKE '$nombre' AND contrasenia LIKE '$contraseña'");;
 	}
 	
-
 	// Hace una consulta a la base de datos.
 	// Busca una coincidencia con un usuario y contraseña concretos.
 	// Devuelve un numero mayor o menor a 0.
@@ -56,4 +54,25 @@
 	function fecha($cadena){
 		return date($cadena);
 	}
+
+	// work in progres
+	// Realiza un insert en la base de datos
+	// En la tabla citas
+	// No devuelve nada
+	function setCita($usuario, $fecha, $hora){
+		conectar()->query("INSERT INTO citas (usuario, fecha, hora) VALUES('" . $usuario . "','" . $fecha . "','" . $hora . "')");
+	}
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+

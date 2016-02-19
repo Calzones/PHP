@@ -2,38 +2,17 @@
 	<head>
 		<title>Gestion citas</title>
 		<link rel="stylesheet" href="stilo.css"/>
+		<script type="text/javascript" src="script.js"></script>
 		<meta charset="UTF-8">
 	</head>
-	<body>
+	<body onload="date();">
 		<h1>Bienvenido: {usuario}</h1>
-		<form class="cita" action="cita.php" method="post" onclick="document.form.submit();">
-<!-- 			<select name=select onclick="document.form.submit();"> -->
-<!-- 				<option   value="lunes">Lunes</option> -->
-<!-- 				<option value="martes">Martes</option> -->
-<!-- 				<option value="miercoles">Miercoles</option> -->
-<!-- 				<option value="jueves">Jueves</option> -->
-<!-- 				<option value="viernes">Viernes</option> -->
-<!-- 				<option value="sabado">Sabado</option> -->
-<!-- 				<option value="domingo">Domingo</option> -->
-<!-- 			</select> -->
-				<script>
-					var fecha = new Date();
-					var mes = (fecha.getMonth()+ 1) + "";
-					var anio = fecha.getFullYear();
-					var dia = fecha.getDate();
-					if(mes.length == 1 ){
-						mes = "0" + mes;
-					}
-					fechaMin = anio + "-" + mes + "-" + dia ;
-					fechaMax = anio + "-" + mes + "-" + (dia + 7);
-					var cadena = "<input type='number' name='select' min='" + fechaMin + "' max='" + fechaMax + "'>";
-					
-					document.getElementById("div").innerHTML = cadena;
-					alert(cadena);
-				</script>
-				<div id="div"></div>
+		
+		<form class="cita" name="form" action="cita.php" method="post">
+			<label class="texto">Seleccione la fecha en la que desearia sacar una cita:</label>
+			<div id="div"></div>
 			<h3>{tabla}</h3>
-			<input type="submit" value=boton>
+			<input type='submit' value='Reservaaa puuuto'/>
 		</form>
 	</body>
 </html>
