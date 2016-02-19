@@ -2,8 +2,8 @@
 	require "medotos.php";
 	session_start();
 	
-	$fechaMal = isset($_POST["select"]) ? $_POST["select"] : '';
-	$horaS = isset($_POST["reserva"]) ? $_POST["reserva"] : '';
+	$fechaMal = isset($_GET["select"]) ? $_GET["select"] : '';
+	$horaS = isset($_GET["reserva"]) ? $_GET["reserva"] : '';
 	$usuario = $_SESSION["nombre"];
 	$hora = "";
 	$tabla = "";
@@ -17,15 +17,16 @@
 			$hora = $i . ":00";
 			$tabla .=  "<tr>";
 			if (getCita($fecha, $hora)->num_rows == 0){
-				$tabla .= "<td>" . $hora . "</td><td><input type='radio' name='reserva' value='" . $hora . "'></td>";
+				$tabla .= "<td>" . $hora . "</td><td><input type='radio' id='si' name='reserva' value='" . $hora . "'></td>";
 			}else{
 				$tabla .= "<td>" . $hora . "</td><td><label>Ta reservao manaso</label></td>";
 			}
 			$tabla .= "</tr>";
 		}
 		$tabla .= "</table></div>";
-		
-		setCita($usuario, $fecha, $horaS);
+		if($horaS != ''){
+			setCita($usuario, $fecha, $horaS);
+		}
 	}
 	
 	$array = array (
