@@ -1,5 +1,7 @@
 <?php
-	require "medotos.php";
+ 	require "medotos.php";
+	//require_once 'modelo.php';
+	
 	session_start();
 
 	$nombre = isset($_POST["usuario"]) ? $_POST["usuario"] : '';
@@ -7,7 +9,6 @@
 	unset($_SESSION["nombre"]);
 	
 	if ($nombre != "" || $contraseña != "") {
-		
 		$resultado = inicioSesion($nombre, $contraseña);
 		
 		if ($resultado->num_rows > 0) {

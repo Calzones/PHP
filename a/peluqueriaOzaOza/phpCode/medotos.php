@@ -13,7 +13,7 @@
 	// Obtiene el contenido de una plantilla html.
 	// Devuelve una string.
 	function getTemplate($pagina) {
-		return file_get_contents ($pagina . '.html');
+		return file_get_contents ('../htmlCode/'. $pagina . '.html');
 	}
 	
 	// Obtiene el contenido de una plantilla html.

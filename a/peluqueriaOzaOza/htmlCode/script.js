@@ -1,9 +1,8 @@
 function date(){
-
 	if(document.cookie.indexOf('usuario') == -1){
 		document.form.submit();
 	}
-	
+		
 	var fecha = new Date();
 	var mes = (fecha.getMonth()+ 1) + "";
 	var anio = fecha.getFullYear();
@@ -16,7 +15,7 @@ function date(){
 	fechaMin = anio + "-" + mes +"-" + dia ;
 	fechaMax = anio + "-" + mes + "-" + (dia + 7);
 	
-	var cadena = "<input type='date' name='select' min='" + fechaMin + "' max='" + fechaMax + "' onchange='formuliar();'>";
+	var cadena = "<input type='date' id='fecha' name='select' min='" + fechaMin + "' max='" + fechaMax + "' onchange='formuliar();'>";
 	document.getElementById("div").innerHTML = cadena;
 	
 	document.cookie = "usuario=paco";	

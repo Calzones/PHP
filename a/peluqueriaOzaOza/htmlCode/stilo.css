@@ -45,7 +45,16 @@ form{
 	margin: 0 auto;
 	padding:20px;
 }
-
+.tabla, th, td{
+	margin: 0 auto;
+	border:1px dotted;
+}
+td, th{
+	padding:5px;
+}
+td{
+	text-align:right;
+}
 
 
 

@@ -3,16 +3,21 @@
 	session_start();
 	
 	$fechaMal = isset($_GET["select"]) ? $_GET["select"] : '';
+	if($fechaMal != ''){
+		$_SESSION["fechaMal"] = $fechaMal;
+	}
 	$horaS = isset($_GET["reserva"]) ? $_GET["reserva"] : '';
+	
 	$usuario = $_SESSION["nombre"];
 	$hora = "";
 	$tabla = "";
+	$fecha = "";
 	
-	if($fechaMal != ''){
-		list($anio, $mes, $dia) = split('[/.-]', $fechaMal);
+	if($_SESSION["fechaMal"] != ''){
+		list($anio, $mes, $dia) = split('[/.-]', $_SESSION["fechaMal"]);
 		$fecha = $dia . "/" . $mes . "/" . $anio;
 	
-		$tabla = "<div class='divTabla'><table><th>Hora</th>";
+		$tabla = "<div class='divTabla'><table class='tabla'><th>Hora</th><th>$fecha</th>";
 		for($i = 8; $i < 17; $i ++){
 			$hora = $i . ":00";
 			$tabla .=  "<tr>";
@@ -28,6 +33,8 @@
 			setCita($usuario, $fecha, $horaS);
 		}
 	}
+	
+	
 	
 	$array = array (
 			"{usuario}" => $usuario,
