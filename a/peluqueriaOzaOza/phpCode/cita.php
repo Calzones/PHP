@@ -2,16 +2,18 @@
 	require "medotos.php";
 	session_start();
 	
-	$fechaMal = isset($_GET["select"]) ? $_GET["select"] : '';
+	$fechaMal = isset($_POST["select"]) ? $_POST["select"] : '';
 	if($fechaMal != ''){
 		$_SESSION["fechaMal"] = $fechaMal;
 	}
-	$horaS = isset($_GET["reserva"]) ? $_GET["reserva"] : '';
+	$horaS = isset($_POST["reserva"]) ? $_POST["reserva"] : '';
 	
 	$usuario = $_SESSION["nombre"];
 	$hora = "";
 	$tabla = "";
 	$fecha = "";
+	
+	$_SESSION["fechaMal"] = isset($_POST["select"]) ? $_POST["select"] : '';
 	
 	if($_SESSION["fechaMal"] != ''){
 		list($anio, $mes, $dia) = split('[/.-]', $_SESSION["fechaMal"]);
@@ -33,9 +35,7 @@
 			setCita($usuario, $fecha, $horaS);
 		}
 	}
-	
-	
-	
+		
 	$array = array (
 			"{usuario}" => $usuario,
 			"{tabla}" => $tabla,

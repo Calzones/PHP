@@ -14,7 +14,7 @@ function date(){
 	
 	fechaMin = anio + "-" + mes +"-" + dia ;
 	fechaMax = anio + "-" + mes + "-" + (dia + 7);
-	
+	alert(fechaMin + " " + fechaMax);
 	var cadena = "<input type='date' id='fecha' name='select' min='" + fechaMin + "' max='" + fechaMax + "' onchange='formuliar();'>";
 	document.getElementById("div").innerHTML = cadena;
 	
