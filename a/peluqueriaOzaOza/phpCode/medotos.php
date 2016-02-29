@@ -38,7 +38,7 @@
 	// Busca una coincidencia con un usuario y contraseña concretos.
 	// Devuelve un numero mayor o menor a 0.
 	function inicioSesion($nombre, $contraseña) {
-		return conectar ()->query( "SELECT * FROM usuarios WHERE nombre LIKE '$nombre' AND contrasenia LIKE '$contraseña'");;
+		return conectar ()->query( "SELECT * FROM usuario WHERE nombre LIKE '$nombre' AND contrasenia LIKE '$contraseña'");;
 	}
 	
 	// Hace una consulta a la base de datos.
@@ -55,12 +55,37 @@
 		return date($cadena);
 	}
 
-	// work in progres
 	// Realiza un insert en la base de datos
 	// En la tabla citas
 	// No devuelve nada
-	function setCita($usuario, $fecha, $hora){
-		conectar()->query("INSERT INTO citas (usuario, fecha, hora) VALUES('" . $usuario . "','" . $fecha . "','" . $hora . "')");
+	function setCita($usuario, $fecha, $hora, $motivo){
+		conectar()->query("INSERT INTO citas (usuario, fecha, hora, motivo) VALUES('" . $usuario . "','" . $fecha . "','" . $hora . "','" . $motivo ."')");
+	}
+	
+	// Hace una consulta a la base de datos.
+	// Busca una coincidencia con un usuario.
+	// Devuelve la hora, fecha y motivo de las citas de un usuario.
+	function getMisCitas($usuario){
+		$mySQLi = conectar();
+		$mySQLi->real_query("SELECT hora, fecha, motivo FROM citas WHERE usuario LIKE '$usuario'");
+		$resultado = $mySQLi->use_result();
+		
+		$misCitas = "<table><th>Hora</th><th>Fecha</th><th>Motivo</th>";
+		
+		while ($fila = $resultado->fetch_assoc()) {
+			$misCitas .= "<tr><td>" . $fila['hora'] . "</td>";
+			$misCitas .= "<td>" . $fila['fecha'] . "</td>";
+			$misCitas .= "<td>" . $fila['motivo'] . "</td></tr>";
+		}
+		
+		$misCitas .= "</table>";
+		
+		$cajita = array (
+				"{usuario}" => $usuario,
+				"{misCitas}" => $misCitas,
+		);
+		
+		echo getTemplateReContraTocho("misCitas", $cajita);
 	}
 ?>
 

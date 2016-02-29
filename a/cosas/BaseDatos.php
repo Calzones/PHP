@@ -1,13 +1,6 @@
 <?php
 	$mysqli = new mysqli ( "localhost", "root", "elrincon", "shop" );
-	// var_dump($mysqli);
-	
-	/* comprobar la conexión */
-	if (mysqli_connect_errno ()) {
-		printf ( "Falló la conexión: %s\n", mysqli_connect_error () );
-		exit ();
-	}
-	
+
 	$consulta = "SELECT * FROM categories";
 	
 	if ($sentencia = $mysqli->prepare ( $consulta )) {

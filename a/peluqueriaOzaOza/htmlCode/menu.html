@@ -5,14 +5,13 @@
 		<script type="text/javascript" src="../htmlCode/script.js"></script>
 		<meta charset="UTF-8">
 	</head>
-	<body onload="date();">
+	<body>
 		<h1>Bienvenido: {usuario}</h1>
 		
-		<form class="cita" name="form" action="cita.php" method="post">
-			<label class="texto">Seleccione la fecha en la que desearia sacar una cita:</label>
-			<div id="div"></div>
-			<h3>{tabla}</h3>
-			<input type='submit' value='Reservar'/>
+		<form class="cita" name="form" action="menu.php" method="post">
+			<input type="submit" value="Nueva cita" name="nuevaCita">
+			<input type="submit" value="Mis citas" name="misCitas">
+			<input type="submit" value="Salir" name="salir">
 		</form>
 	</body>
 </html>
